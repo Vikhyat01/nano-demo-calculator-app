@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Demo Application to get a feel of the nano competition",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js"
   },

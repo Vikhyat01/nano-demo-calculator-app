@@ -1,25 +1,27 @@
-const express = require('express');
+import express, { json, Router } from 'express';
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
 const baseUrl = '/calculator'
 
-app.use(express.json());
+app.use(json());
 
-const baseRouter = express.Router();
+const baseRouter = Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.send('');
+    return res.send("Hello world!");
 });
 
 baseRouter.post('/add', (req, res) => {
-    res.json({ "": null });
+    const ans = req.body.first+req.body.second;
+    res.json({result : ans});
 });
 
 
 baseRouter.post('/subtract', (req, res) => {
-    res.json({ "": null });
+    const ans = req.body.first - req.body.second;
+    res.json({ result: ans });
 });
 
 app.use(baseUrl, baseRouter);
